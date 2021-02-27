@@ -106,7 +106,7 @@ router.route('/movies')
             res.json({success: true, msg: 'post movies', headers: req_obj.headers, query: req.query, host: req_obj.key});
         }
     )
-    .put(function(req, res) {
+    .put(authJwtController.isAuthenticated, function(req, res) {
             // set status code
             res = res.status(200);
             if (req.get('Content-Type')) {
@@ -116,7 +116,7 @@ router.route('/movies')
             res.json({success: true, msg: 'put movies', headers: req_obj.headers, query: req.query, host: req_obj.key});
         }
     )
-    .delete(function(req, res) {
+    .delete(authController.isAuthenticated, function(req, res) {
             // set status code
             res = res.status(200);
             if (req.get('Content-Type')) {
