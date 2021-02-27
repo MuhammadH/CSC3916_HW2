@@ -72,6 +72,17 @@ router.post('/signin', function (req, res) {
     }
 });
 
+router.get('/movies',function(req, res) {
+        // set status code
+        res = res.status(200);
+        if (req.get('Content-Type')) {
+            res = res.type(req.get('Content-Type'));
+        }
+        var req_obj = getJSONObject(req);
+        res.json({success: true, msg: 'did a thing', headers: o.headers, query: req.query, host: o.key});
+    }
+);
+
 router.route('/testcollection')
     .delete(authController.isAuthenticated, function(req, res) {
         console.log(req.body);
@@ -91,18 +102,6 @@ router.route('/testcollection')
         }
         var o = getJSONObjectForMovieRequirement(req);
         res.json(o);
-    }
-    );
-
-router.route('/movies')
-    .get(function(req, res) {
-        // set status code
-        res = res.status(200);
-        if (req.get('Content-Type')) {
-            res = res.type(req.get('Content-Type'));
-        }
-        var req_obj = getJSONObject(req);
-        res.json({success: true, msg: 'did a thing', headers: o.headers, query: req.query, host: o.key});
     }
     );
 
