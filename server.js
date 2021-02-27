@@ -94,6 +94,18 @@ router.route('/testcollection')
     }
     );
 
+router.route('/movies')
+    .get(function(req, res) {
+        // set status code
+        res = res.status(200);
+        if (req.get('Content-Type')) {
+            res = res.type(req.get('Content-Type'));
+        }
+        var req_obj = getJSONObject(req);
+        res.json({success: true, msg: 'did a thing', headers: o.headers, query: req.query, host: o.key});
+    }
+    );
+
 app.use('/', router);
 app.listen(process.env.PORT || 8080);
 module.exports = app; // for testing only
