@@ -72,19 +72,6 @@ router.post('/signin', function (req, res) {
     }
 });
 
-/*
-router.get('/movies',function(req, res) {
-        // set status code
-        res = res.status(200);
-        if (req.get('Content-Type')) {
-            res = res.type(req.get('Content-Type'));
-        }
-        var req_obj = getJSONObjectForMovieRequirement(req);
-        res.json({success: true, msg: 'did a thing', headers: req_obj.headers, query: req.query, host: req_obj.key});
-    }
-);
- */
-
 router.route('/movies')
     .get(function(req, res) {
         console.log(req.body);
