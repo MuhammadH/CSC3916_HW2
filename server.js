@@ -103,7 +103,7 @@ router.route('/movies')
                 res = res.type(req.get('Content-Type'));
             }
             var req_obj = getJSONObjectForMovieRequirement(req);
-            res.json({success: true, msg: 'get movies', headers: req_obj.headers, query: req.query, host: req_obj.key});
+            res.json({success: true, msg: 'post movies', headers: req_obj.headers, query: req.query, host: req_obj.key});
         }
     )
     .put(function(req, res) {
@@ -113,7 +113,7 @@ router.route('/movies')
                 res = res.type(req.get('Content-Type'));
             }
             var req_obj = getJSONObjectForMovieRequirement(req);
-            res.json({success: true, msg: 'get movies', headers: req_obj.headers, query: req.query, host: req_obj.key});
+            res.json({success: true, msg: 'put movies', headers: req_obj.headers, query: req.query, host: req_obj.key});
         }
     )
     .delete(function(req, res) {
@@ -123,7 +123,7 @@ router.route('/movies')
                 res = res.type(req.get('Content-Type'));
             }
             var req_obj = getJSONObjectForMovieRequirement(req);
-            res.json({success: true, msg: 'get movies', headers: req_obj.headers, query: req.query, host: req_obj.key});
+            res.json({success: true, msg: 'delete movies', headers: req_obj.headers, query: req.query, host: req_obj.key});
         }
     );
 
